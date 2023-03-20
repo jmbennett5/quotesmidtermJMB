@@ -8,6 +8,7 @@
                 public $category;
                 public $category_id;
                 public $author_id;
+                public $id;
 
                 public function __construct($db){
                     $this->conn = $db;
