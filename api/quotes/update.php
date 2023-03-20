@@ -6,6 +6,7 @@
 	
 	include_once '../../models/Quote.php';
     include_once '../../config/Database.php';
+    include_once '../../functions/functions.php';
 
 	$database = new Database();
 	$db = $database->connect();
@@ -25,7 +26,20 @@
     $quotes->quote = $data->quote;
     $quotes->author_id = $data->author_id;
     $quotes->category_id = $data->category_id;
+     
+    if(!isValid($quotes->author_id, $quotes)){
+    
+        echo json_encode(array('message'=> 'author_id not found'));
+        exit();
+    }
+    
+    if(!isValid($quotes->category_id, $quotes)){
+        echo json_encode(array('message'=> 'category_id not found'));
+        exit();
+    }
+    
 
+    
     if($quotes->update()){
         echo json_encode(array('id'=>$quotes->id, 'quote'=>$quotes->quote, 'author_id'=>$quotes->author_id, 'category_id'=>$quotes->category_id));
     }else if (empty($quotes->quote)){
