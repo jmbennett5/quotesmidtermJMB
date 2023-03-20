@@ -7,6 +7,9 @@
 
        public $id;
        public $category;
+       public $updatedCategory;
+       public $updatedId;
+
 
        public function __construct($db){
         $this->conn = $db;

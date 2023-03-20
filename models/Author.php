@@ -7,6 +7,8 @@
 
     public $id;
     public $author;
+    public $updatedId;
+    public $updatedAuthor;
 
     public function __construct($db) {
         $this->conn = $db;
