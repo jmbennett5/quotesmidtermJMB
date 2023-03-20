@@ -12,7 +12,7 @@
   }
 
     $numRows = $stmt->rowCount();
-    echo "Query: $query\nID: $id\nNum Rows: $numRows\n";
+    
     return $numRows > 0;
     //return $stmt->rowCount() > 0;
 }
