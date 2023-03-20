@@ -1,5 +1,5 @@
 <?php 
-   /* class Database {
+  /*  class Database {
       private $host = 'localhost';
       private $port = '5432';
       private $db_name = 'quotesdb';
@@ -59,4 +59,4 @@
   }
 
 
-  }
+  } 
