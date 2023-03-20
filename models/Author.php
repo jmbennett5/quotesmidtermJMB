@@ -102,7 +102,7 @@
                 return false;
             }
 
-            $this->updatedAuthor = $this->author;
+            $this->updatedAuthor = $this->author; //fixed an issue where I did not declare these variables same with category
             $this->updatedId = $this->id;
             return json_encode(array("author" => $this->updatedAuthor, "id" => $this->updatedId));
         }
