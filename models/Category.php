@@ -6,6 +6,7 @@
        private $table = 'categories';
 
        public $id;
+       public $category;
 
        public function __construct($db){
         $this->conn = $db;
