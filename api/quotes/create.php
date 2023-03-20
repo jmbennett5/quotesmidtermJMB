@@ -1,4 +1,4 @@
-   <?php
+<?php
    header('Access-Control-Allow-Origin: *');
    header('Content-Type: application/json');
    header('Access-Control-Allow-Methods: POST');
@@ -29,12 +29,12 @@
   
   if(!isValid($quotes->author_id, $quotes)){
     
-    echo json_encode(array('message'=> 'author_id not found'));
+    echo json_encode(array('message'=> 'author_id Not Found'));
     exit();
 }
 
 if(!isValid($quotes->category_id, $quotes)){
-    echo json_encode(array('message'=> 'category_id not found'));
+    echo json_encode(array('message'=> 'category_id Not Found'));
     exit();
 }
 

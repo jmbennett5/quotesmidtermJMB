@@ -29,12 +29,12 @@
      
     if(!isValid($quotes->author_id, $quotes)){
     
-        echo json_encode(array('message'=> 'author_id not found')); //added
+        echo json_encode(array('message'=> 'author_id Not Found')); //added
         exit();
     }
     
     if(!isValid($quotes->category_id, $quotes)){
-        echo json_encode(array('message'=> 'category_id not found'));//added
+        echo json_encode(array('message'=> 'category_id Not Found'));//added
         exit();
     }
     
