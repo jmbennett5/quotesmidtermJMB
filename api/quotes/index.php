@@ -11,7 +11,7 @@
          exit();
      }
      
-     if ($method === 'GET') {
+     if ($method === 'GET') { //check the method for an id
          if (parse_url($uri, PHP_URL_QUERY)) {
              include_once "../../api/quotes/read_single.php";
              

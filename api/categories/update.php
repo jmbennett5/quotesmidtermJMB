@@ -29,18 +29,15 @@
         $category->category = $data->category;
         
        
-        if (!$category->update()) {
+        if (!$category->update()) { //again isValid possible here
                echo json_encode(array('message' => 'category_id Not Found'));
                exit();
   
         } 
 
 
-        else if($category->update()){
-            echo json_encode(
-                array('id'=>$category->id, 'category'=>$category->category)
-
-            );
+        else if($category->update()){// just looking to see if the update came back true and returning the info
+            echo json_encode(array('id'=>$category->id, 'category'=>$category->category));
         } else {
             echo json_encode(
                    array('message' => 'Category not Updated')

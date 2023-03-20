@@ -17,7 +17,7 @@
 
    //$category->read_single();
 
-   if (!isValid($category->id, $category)) {
+   if (!isValid($category->id, $category)) { //check to see if category id is in database
       echo json_encode(array('message' => 'category_id Not Found'));
       exit();
   }

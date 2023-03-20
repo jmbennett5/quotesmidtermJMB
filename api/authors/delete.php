@@ -26,7 +26,7 @@ if(!isset($data->id)){
 
 $author->id = $data->id;
 
-if (!$author->delete()) {
+if (!$author->delete()) { //this could be my isValid Function
     echo json_encode(array('message' => 'author_id Not Found'));
     exit();
  

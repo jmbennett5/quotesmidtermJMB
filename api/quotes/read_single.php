@@ -12,7 +12,7 @@
 	$quotes = new Quote($db);
     
 	
-	if (isset($_GET['id'])) {
+	if (isset($_GET['id'])) { //just the id is set?
 		
         $quotes->id = $_GET['id'];
 		$quotes->read_single();
@@ -31,11 +31,11 @@
 		}
 	}
 
-    elseif (isset($_GET['author_id']) && isset($_GET['category_id'])) {
+    elseif (isset($_GET['author_id']) && isset($_GET['category_id'])) { //both author and category id is set, retrieve the quote with these parameters
         $quotes->category_id = $_GET['category_id'];
         $quotes->author_id = $_GET['author_id'];
        
-       if(!isValid($quotes->category_id, $quotes)){   
+       if(!isValid($quotes->category_id, $quotes)){   //is the id in the database?
             echo json_encode(array('message'=> 'category_id Not Found'));
             exit();
             

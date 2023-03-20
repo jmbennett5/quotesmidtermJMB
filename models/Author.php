@@ -12,15 +12,15 @@
         $this->conn = $db;
     }
     
-    public function getTable(){
+    public function getTable(){ //this is needed in all models for isValid to work
         return $this->table;
       }
 
-      public function getConn(){
+      public function getConn(){ //this is needed in all models for isValid to work
         return $this->conn;
       } 
 
-    public function read() {
+    public function read() { //query returns id and author, same with category read function
         $query = 'SELECT 
             id,
             author
@@ -35,7 +35,7 @@
         return $stmt;
     }
 
-    public function read_single() {
+    public function read_single() { //here we limit 1 for the specific ID
         $query = 'SELECT 
             id,
             author
@@ -50,7 +50,7 @@
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if (!$row) {
+        if (!$row) {  //lets us return a null if the row doesnt exist
             $this->id = null;
             $this->author = null;
             return false;
@@ -62,7 +62,7 @@
         return true;
     }
 
-    public function create() {
+    public function create() {  //insert query, same on category, returns id to let us echo in create.php
         $query = 'INSERT INTO ' .
                $this->table . '(author)
                VALUES(:author)
@@ -72,7 +72,7 @@
         $this->author = htmlspecialchars(strip_tags($this->author));
         $stmt->bindParam(':author', $this->author);
           
-        if ($stmt->execute()) {
+        if ($stmt->execute()) {  //returns the array
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             return $row['id'];
         }
@@ -81,7 +81,7 @@
         return false;
     }
 
-    public function update() {
+    public function update() { // updates the database with the new info that is in put request, specifying author and the id to be updated
         $query = 'UPDATE ' . 
                $this->table . '
                SET   author = :author
@@ -96,7 +96,7 @@
 
         if ($stmt->execute()) {
             $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if (!$row) {
+            if (!$row) {  //if there is nothing to update
                 return false;
             }
 
@@ -109,7 +109,7 @@
         return false;
     }
 
-    public function delete() {
+    public function delete() {  //removes from the table the specified row with id.
         $query = 'DELETE FROM ' . 
                $this->table . 
                ' WHERE id = :id
@@ -124,7 +124,7 @@
             if ($row) {
                 return $row['id'];
             } else {
-                return false;
+                return false;  //if the row wasnt there to delete
             }
         }
        

@@ -35,7 +35,7 @@
        }
 
        public function getTable(){
-         return $this->table;
+         return $this->table; 
        }
 
        public function getConn(){

@@ -16,7 +16,7 @@
 
    //$author->read_single();
 
-   if (!isValid($author->id, $author)) {
+   if (!isValid($author->id, $author)) { //check for the id being in the database
       echo json_encode(array('message' => 'author_id Not Found'));
       exit();
   }

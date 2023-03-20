@@ -25,8 +25,8 @@ if(!isset($data->author)){
 
 $author->author = $data->author;
 
-$authorId = $author->create();
-if($authorId){
+$authorId = $author->create(); // bool
+if($authorId){ //is it true? return the created author id and author
     echo json_encode(
         array('id'=>$authorId, 'author'=>$author->author)
     );

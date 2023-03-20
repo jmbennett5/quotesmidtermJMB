@@ -10,7 +10,7 @@
          exit();
      }
      
-     if ($method === 'GET') {
+     if ($method === 'GET') {  //method pick the required files
          if (isset($_GET['id'])) {
              include_once "../../api/authors/read_single.php";
          } else {

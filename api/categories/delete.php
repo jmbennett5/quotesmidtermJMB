@@ -26,7 +26,7 @@ if(!isset($data->id)){
 
 $category->id = $data->id;
 
-if (!$category->delete()) {
+if (!$category->delete()) { //again could use isValid function here
     echo json_encode(array('message' => 'category_id Not Found'));
     exit();
  

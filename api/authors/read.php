@@ -34,7 +34,7 @@
 
           }else {
 
-            echo json_encode( 
+            echo json_encode(  //if the author is empty completely
                array('message'=> 'author_id Not Found')
             );
           }

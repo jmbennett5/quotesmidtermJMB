@@ -36,11 +36,8 @@
         } 
 
 
-        else if($author->update()){
-            echo json_encode(
-                array('id'=>$author->id, 'author'=>$author->author)
-
-            );
+        else if($author->update()){  //if the update function returns true
+            echo json_encode(array('id'=>$author->id, 'author'=>$author->author)); //moved them from multiple lines to see if issue is resolved.
         } else {
             echo json_encode(
                    array('message' => 'author not Updated')

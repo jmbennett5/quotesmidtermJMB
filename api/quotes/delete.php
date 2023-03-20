@@ -17,8 +17,8 @@ $data = json_decode(file_get_contents("php://input"));
 
 $quotes->id = $data->id;
 
-if($quotes->delete()){
+if($quotes->delete()){ //did it return true
     echo json_encode(array('id'=>$quotes->id));
 }else{
-    echo json_encode(array('message'=> 'No Quotes Found'));
+    echo json_encode(array('message'=> 'No Quotes Found')); //nothing to delete
 }

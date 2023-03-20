@@ -46,7 +46,7 @@
                 }
 
                 public function read_single(){
-                        if (isset($_GET['id'])){
+                        if (isset($_GET['id'])){ //query for if looking for quote by ID
                             
                             $query = 'SELECT 
                                    quotes.id,
@@ -79,7 +79,7 @@
                         
                         }
 
-                    if (isset($_GET['author_id']) && isset($_GET['category_id'])){
+                    if (isset($_GET['author_id']) && isset($_GET['category_id'])){//looking for a sepcific quote by author and category id
                         $query = 'SELECT 
                                quotes.id,
                                quotes.quote,
@@ -116,7 +116,7 @@
                     }  
                     
 
-                    if (isset($_GET['author_id'])){
+                    if (isset($_GET['author_id'])){ //looking for quote by author id
                         $query = 'SELECT
                                quotes.id,
                                quotes.quote,
@@ -156,7 +156,7 @@
 
                     }
 
-                    if(isset($_GET['category_id'])){
+                    if(isset($_GET['category_id'])){//looking for quote by category_id
                         $query = 'SELECT
                                quotes.id,
                                quotes.quote,
@@ -195,11 +195,11 @@
 
                    }
 
-                   public function create() {
+                   public function create() { //create this quote in the table quotes, 
            
                       
                     $query = 'INSERT INTO ' .  $this->table . '(quote, author_id, category_id)
-                    VALUES( :quote, :author_id, :category_id) RETURNING id, quote, author_id, category_id';          
+                    VALUES( :quote, :author_id, :category_id) RETURNING id, quote, author_id, category_id';    //return the query to echo to the user      
                     
                     $stmt = $this->conn->prepare($query);
                     $this->quote = htmlspecialchars(strip_tags($this->quote));
@@ -226,7 +226,7 @@
                    }
 
 
-                  public function update(){
+                  public function update(){  //change the requested quote by id/author id and /category id
                     $query = 'UPDATE '. $this->table . '
                     SET quote = :quote,
                         author_id = :author_id,
@@ -249,7 +249,7 @@
                    $stmt->bindParam(':category_id', $this->category_id);
 			       $stmt->bindParam(':id', $this->id);  
                    
-                   if($stmt->execute() && $stmt->rowCount() > 0){
+                   if($stmt->execute() && $stmt->rowCount() > 0){ //the quote has to exist.
                     return true;
                    }else { return false;
                 }
@@ -258,7 +258,7 @@
                   
                   } 
                   
-                  public function delete(){
+                  public function delete(){ //remove the quote
                     $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
 
                     $stmt = $this->conn->prepare($query);
@@ -266,7 +266,7 @@
 
                     $stmt->bindParam(':id', $this->id);
 
-                    if($stmt->execute()){
+                    if($stmt->execute()){ //return false if there is no quote with those specifications
                       if ($stmt->rowCount() > 0){
                         return true;
                         }

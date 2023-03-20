@@ -19,7 +19,7 @@
    if($num > 0){
       $quote_arr = array();
 
-      while($row = $result->fetch(PDO::FETCH_ASSOC)){
+      while($row = $result->fetch(PDO::FETCH_ASSOC)){ // puts the quotes into the array to return
         extract($row);
         
         $quote_item = array(
@@ -35,7 +35,7 @@
       }
 
       echo json_encode($quote_arr);
-   } else {
+   } else {  //no quotes in the table
       echo json_encode(
         array('message' => 'No Quotes Found')
 
